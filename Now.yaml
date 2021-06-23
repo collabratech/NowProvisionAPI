@@ -1,0 +1,336 @@
+DomainName: OrderESB
+Messages:
+- Name: ISendReportRequest
+  Properties:
+  - Name: ReportId
+    Type: guid
+  - Name: Provider
+    Type: string
+  - Name: Target
+    Type: string
+BoundedContexts:
+- SolutionName: Ordering
+  Producers:
+  - EndpointRegistrationMethodName: SubmitReportRequest
+    ExchangeName: report-requests
+    MessageName: ISendReportRequest
+    ExchangeType: fanout
+    ProducerName: ReportWasRequested
+    UsesDb: true
+  Consumers:
+  - EndpointRegistrationMethodName: AllReportsGetSentFromHereEndpoint
+    ConsumerName: SenderOfAllReports
+    ExchangeName: report-requests
+    MessageName: ISendReportRequest
+    QueueName: all-reports
+    ExchangeType: fanout
+  Bus:
+    AddBus: true
+  Port: 5010
+  DbContext:
+   ContextName: OrderingDbContext
+   DatabaseName: OrderingDbContext
+   Provider: SqlServer
+  Entities:
+  - Name: Order
+    Properties:
+    - Name: Id
+      IsPrimaryKey: true
+      Type: Guid
+      CanFilter: true
+      CanSort: true
+    - Name: SubscriptionId
+      Type: Int32
+      CanFilter: true
+      CanSort: true
+    - Name: ProductHandle
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Status
+      Type: Int32
+      CanFilter: true
+      CanSort: true
+    - Name: Property
+      Type: Property
+      ForeignKeyPropName: PropertyId
+    - Name: Office
+      Type: Office
+      ForeignKeyPropName: OfficeId
+    - Name: Agent
+      Type: Agent
+      ForeignKeyPropName: AgentId
+    - Name: CreatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: UpdatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: DeletedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: IsDeleted
+      Type: bool?
+      DefaultValue: false
+    - Name: TenantId
+      Type: string
+      CanFilter: false
+      CanSort: false
+  - Name: Property
+    Properties:
+    - Name: PropertyId
+      IsPrimaryKey: true
+      Type: Guid
+      CanFilter: true
+      CanSort: true
+    - Name: Slug
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: ContractType
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Country
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: HideAddress
+      Type: bool?
+      CanFilter: true
+      CanSort: true
+    - Name: Address
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: CityState
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: ZipCode
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Price
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Bedrooms
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Bathrooms
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Area
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Headline
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Description
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: ParkingSpaces
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Type
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: YearBuilt
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: BuiltArea
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: LotSize
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Latitude
+      Type: Int32
+      CanFilter: true
+      CanSort: true
+    - Name: Longitude
+      Type: Int32
+      CanFilter: true
+      CanSort: true
+    - Name: CreatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: UpdatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: DeletedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: IsDeleted
+      Type: bool?
+      DefaultValue: false
+    - Name: TenantId
+      Type: string
+      CanFilter: false
+      CanSort: false  
+  - Name: Agent
+    Properties:
+    - Name: AgentId
+      IsPrimaryKey: true
+      Type: Guid
+      CanFilter: true
+      CanSort: true
+    - Name: Name
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Phone
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Email
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Website
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Twitter
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Facebook
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: LinkedIn
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: License
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: LicenseIcon
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: CreatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: UpdatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: DeletedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: IsDeleted
+      Type: bool?
+      DefaultValue: false
+    - Name: TenantId
+      Type: string
+      CanFilter: false
+      CanSort: false  
+  - Name: Office
+    Properties:
+    - Name: OfficeId
+      IsPrimaryKey: true
+      Type: guid
+      CanFilter: true
+      CanSort: true
+    - Name: Name
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Address
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: CityState
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: CreatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: UpdatedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: DeletedUtc
+      Type: DateTimeOffset
+      CanFilter: false
+      CanSort: false
+    - Name: IsDeleted
+      Type: bool?
+      DefaultValue: false
+    - Name: TenantId
+      Type: string
+      CanFilter: false
+      CanSort: false 
+  Environments:
+    - EnvironmentName: Development
+      Authority: https://localhost:5010
+      Audience: bb30dd61-2b7b-405b-a172-0e28a2eabe5a
+      AuthorizationUrl: https://localhost:5010/connect/authorize
+      TokenUrl: https://localhost:5010/connect/token
+      ClientId: bb30dd61-2b7b-405b-a172-0e28a2eabe5a
+      BrokerSettings:
+        Host: rmqlocal
+        VirtualHost: colmiler
+        Username: test
+        Password: test
+  SwaggerConfig:
+    Title: CollabraSwagger
+    Description: This is my CollabraSwagger
+    SwaggerEndpointName: "v1"
+    AddSwaggerComments: true
+  AuthorizationSettings:
+    Policies:
+      - Name: CanReadOrder
+        PolicyType: scope
+        PolicyValue: order.read
+        EndpointEntities:
+          - EntityName: Order
+            RestrictedEndpoints:
+              - GetList
+              - GetRecord
+      - Name: CanAddOrder
+        PolicyType: scope
+        PolicyValue: order.add
+        EndpointEntities:
+          - EntityName: Order
+            RestrictedEndpoints:
+              - AddRecord
+      - Name: CanDeleteOrder
+        PolicyType: scope
+        PolicyValue: order.delete
+        EndpointEntities:
+          - EntityName: Patient
+            RestrictedEndpoints:
+              - DeleteRecord
+      - Name: CanUpdateOrder
+        PolicyType: scope
+        PolicyValue: order.update
+        EndpointEntities:
+          - EntityName: Order
+            RestrictedEndpoints:
+              - UpdateRecord
+              - UpdatePartial
