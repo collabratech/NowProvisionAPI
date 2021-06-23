@@ -1,29 +1,29 @@
-# OrderESB
+# NowProvisionAPI #
 
-This project was created with [Craftsman](https://github.com/pdevito3/craftsman).
+The Collabra NowProvisionAPI is an API, azure ESB and HangFire project used to orchestration the NOW APIs for further customization or provisioning/rendering. 
 
-## Get Started
+## Documentation
+<a href="https://docs.google.com/document/d/1Zra1-rc9CkmaySjzHBNK3H4mW4ikvQjlliAqzwOTYVU">Now Provision API Specification</a>
 
-Go to your solution directory:
+## Configuration Settings ##
 
-```shell
-cd OrderESB
-```
+✍🏼  Some of these settings are defined in appsettings.json files. In the Azure environment, these settings are defined in global variables
 
-Run your solution:
+ - **MongoConfig:ConnectionString** - The connection string to a MongoDB database where the data is stored.
+ - **MongoConfig:DbName** - The name of the database.
+ - **JwtConfig:JwtIssuer** - The issuer or issuers (comma-separated, no spaces) that are allowed to call the API. This should be in a URL format, typically the root URL for the service making the call. If the service doesn't have an actual URL, a URL based on the company with the name of the service in it. *NOTE: Default set in appsettings.json.*
+ - **JwtConfig:JwtAudience** - The root URL for this API. This should be specific to the environment to help prevent clients from accidentally making calls in the wrong environment. *NOTE: Default set in appsettings.json.*
+ - **JwtConfig:JwtKey** - The key or keys (comma-separated, no spaces) used to verify the JWT is issued by the proper authority and hasn't been modified.
 
-```shell
-dotnet run --project YourBoundedContextName.WebApi
-```
+## Introduction to the Code ##
 
-## Running Integration Tests
-To run integration tests:
+The service was built on a separate architecture in 4 different projects: Ordering.Core, Ordering.Infrastructure, Ordering.WebApi and Messages.
 
-1. Ensure that you have docker installed.
-2. Go to your src directory for the bounded context that you want to test.
-3. Confirm that you have migrations in your infrastructure project. If not you can add them by doing the following:
-    1. Set an environment variable. It doesn't matter what that environment name is for these purposes.
-        - Powershell: `$Env:ASPNETCORE_ENVIRONMENT = "IntegrationTesting"`
-        - Bash: export `ASPNETCORE_ENVIRONMENT = IntegrationTesting`
-    2. Run a Migration:`dotnet ef migrations add "InitialMigration" --project YourBoundedContextName.Infrastructure --startup-project YourBoundedContextName.WebApi --output-dir Migrations`
-4. Run the tests. They will take some time on the first run in the last 24 hours in order to set up the docker configuration.
+
+ #### 👨🏼‍🏫 Contact
+ 
+ Collabra Slack Team - #team-platform
+ 
+ Project Link: https://github.com/collabratech/NowProvisionAPI
+
+
