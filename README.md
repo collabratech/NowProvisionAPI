@@ -1,6 +1,6 @@
 # OrderESB
 
-This project was created with [Craftsman](https://github.com/pdevito3/craftsman).
+This project was created 
 
 ## Get Started
 
