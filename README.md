@@ -1,29 +1,20 @@
-# OrderESB
+# OrderESB #
 
-This project was created 
+The Collabra OrderingESB is an API with Azure ESB and HangFire, used to store NOW products orders for further customization or provisioning/rendering. It is also used to track Errors during the production process of an order.
 
-## Get Started
+## Documentation
+<a href="https://docs.google.com/document/d/1Zra1-rc9CkmaySjzHBNK3H4mW4ikvQjlliAqzwOTYVU">Flow Provision Api NOW</a>
 
-Go to your solution directory:
+## Introduction to the Code ##
 
-```shell
-cd OrderESB
-```
+The service was built on a separate architecture in 4 different projects: Ordering.Core, Ordering.Infrastructure, Ordering.WebApi and Messages.
 
-Run your solution:
 
-```shell
-dotnet run --project YourBoundedContextName.WebApi
-```
 
-## Running Integration Tests
-To run integration tests:
+ #### 👨🏼‍🏫 Contact
+ 
+ Collabra Slack Team - #team-platform
+ 
+ Project Link: https://github.com/collabratech/OrderingESB
 
-1. Ensure that you have docker installed.
-2. Go to your src directory for the bounded context that you want to test.
-3. Confirm that you have migrations in your infrastructure project. If not you can add them by doing the following:
-    1. Set an environment variable. It doesn't matter what that environment name is for these purposes.
-        - Powershell: `$Env:ASPNETCORE_ENVIRONMENT = "IntegrationTesting"`
-        - Bash: export `ASPNETCORE_ENVIRONMENT = IntegrationTesting`
-    2. Run a Migration:`dotnet ef migrations add "InitialMigration" --project YourBoundedContextName.Infrastructure --startup-project YourBoundedContextName.WebApi --output-dir Migrations`
-4. Run the tests. They will take some time on the first run in the last 24 hours in order to set up the docker configuration.
+
