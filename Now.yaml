@@ -1,4 +1,4 @@
-DomainName: OrderESB
+DomainName: NowProvisionAPI
 Messages:
 - Name: ISendReportRequest
   Properties:
@@ -9,7 +9,7 @@ Messages:
   - Name: Target
     Type: string
 BoundedContexts:
-- SolutionName: Ordering
+- SolutionName: NowProvisionAPI
   Producers:
   - EndpointRegistrationMethodName: SubmitReportRequest
     ExchangeName: report-requests
@@ -28,11 +28,11 @@ BoundedContexts:
     AddBus: true
   Port: 5010
   DbContext:
-   ContextName: OrderingDbContext
-   DatabaseName: OrderingDbContext
+   ContextName: NowProvisionApiDbContext
+   DatabaseName: NowProvisionApiDbContext
    Provider: SqlServer
   Entities:
-  - Name: Order
+  - Name: NowProv
     Properties:
     - Name: Id
       IsPrimaryKey: true
@@ -304,33 +304,33 @@ BoundedContexts:
     AddSwaggerComments: true
   AuthorizationSettings:
     Policies:
-      - Name: CanReadOrder
+      - Name: CanReadNowProv
         PolicyType: scope
-        PolicyValue: order.read
+        PolicyValue: NowProv.read
         EndpointEntities:
-          - EntityName: Order
+          - EntityName: NowProv
             RestrictedEndpoints:
               - GetList
               - GetRecord
-      - Name: CanAddOrder
+      - Name: CanAddNowProv
         PolicyType: scope
-        PolicyValue: order.add
+        PolicyValue: NowProv.add
         EndpointEntities:
-          - EntityName: Order
+          - EntityName: NowProv
             RestrictedEndpoints:
               - AddRecord
-      - Name: CanDeleteOrder
+      - Name: CanDeleteNowProv
         PolicyType: scope
-        PolicyValue: order.delete
+        PolicyValue: NowProv.delete
         EndpointEntities:
           - EntityName: Patient
             RestrictedEndpoints:
               - DeleteRecord
-      - Name: CanUpdateOrder
+      - Name: CanUpdateNowProv
         PolicyType: scope
-        PolicyValue: order.update
+        PolicyValue: NowProv.update
         EndpointEntities:
-          - EntityName: Order
+          - EntityName: NowProv
             RestrictedEndpoints:
               - UpdateRecord
               - UpdatePartial
