@@ -17,7 +17,7 @@ namespace NowProvisionAPI.FunctionalTests.FunctionalTests.NowProv
             // Arrange
             var fakeNowProv = new FakeNowProv { }.Generate();
             var patchDoc = new JsonPatchDocument<NowProvForUpdateDto>();
-            patchDoc.Replace(n => n.ProductHandle, "Easily Identified Value For Test");
+            patchDoc.Replace(n => n.Events, "Easily Identified Value For Test");
 
             _client.AddAuth(new[] {"NowProv.update"});
 
@@ -37,7 +37,7 @@ namespace NowProvisionAPI.FunctionalTests.FunctionalTests.NowProv
             // Arrange
             var fakeNowProv = new FakeNowProv { }.Generate();
             var patchDoc = new JsonPatchDocument<NowProvForUpdateDto>();
-            patchDoc.Replace(n => n.ProductHandle, "Easily Identified Value For Test");
+            patchDoc.Replace(n => n.Events, "Easily Identified Value For Test");
 
             await InsertAsync(fakeNowProv);
 
@@ -55,7 +55,7 @@ namespace NowProvisionAPI.FunctionalTests.FunctionalTests.NowProv
             // Arrange
             var fakeNowProv = new FakeNowProv { }.Generate();
             var patchDoc = new JsonPatchDocument<NowProvForUpdateDto>();
-            patchDoc.Replace(n => n.ProductHandle, "Easily Identified Value For Test");
+            patchDoc.Replace(n => n.Events, "Easily Identified Value For Test");
             _client.AddAuth();
 
             await InsertAsync(fakeNowProv);
