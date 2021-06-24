@@ -16,9 +16,6 @@ namespace NowProvisionAPI.Infrastructure.Contexts
         #region DbSet Region - Do Not Delete
 
         public DbSet<NowProv> NowProvs { get; set; }
-        public DbSet<Property> Propertys { get; set; }
-        public DbSet<Agent> Agents { get; set; }
-        public DbSet<Office> Offices { get; set; }
         #endregion DbSet Region - Do Not Delete
 
 
@@ -26,9 +23,6 @@ namespace NowProvisionAPI.Infrastructure.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<NowProv>().Property(p => p.Id).ValueGeneratedNever();
-            modelBuilder.Entity<Property>().Property(p => p.PropertyId).ValueGeneratedNever();
-            modelBuilder.Entity<Agent>().Property(p => p.AgentId).ValueGeneratedNever();
-            modelBuilder.Entity<Office>().Property(p => p.OfficeId).ValueGeneratedNever();
         }
     }
 }

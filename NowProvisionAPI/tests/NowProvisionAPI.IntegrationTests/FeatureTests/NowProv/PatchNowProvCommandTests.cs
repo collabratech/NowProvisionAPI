@@ -28,7 +28,7 @@ namespace NowProvisionAPI.IntegrationTests.FeatureTests.NowProv
 
             var patchDoc = new JsonPatchDocument<NowProvForUpdateDto>();
             var newValue = "Easily Identified Value For Test";
-            patchDoc.Replace(n => n.ProductHandle, newValue);
+            patchDoc.Replace(n => n.Events, newValue);
 
             // Act
             var command = new PatchNowProv.PatchNowProvCommand(id, patchDoc);
@@ -36,7 +36,7 @@ namespace NowProvisionAPI.IntegrationTests.FeatureTests.NowProv
             var updatedNowProv = await ExecuteDbContextAsync(db => db.NowProvs.Where(n => n.Id == id).SingleOrDefaultAsync());
 
             // Assert
-            updatedNowProv.ProductHandle.Should().Be(newValue);
+            updatedNowProv.Events.Should().Be(newValue);
         }
         
         [Test]

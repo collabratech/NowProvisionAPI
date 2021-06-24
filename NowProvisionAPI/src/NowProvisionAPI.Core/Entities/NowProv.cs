@@ -14,22 +14,13 @@ namespace NowProvisionAPI.Core.Entities
         public Guid Id { get; set; }
 
         [Sieve(CanFilter = true, CanSort = true)]
-        public Int32 SubscriptionId { get; set; }
+        public string Events { get; set; }
 
         [Sieve(CanFilter = true, CanSort = true)]
-        public string ProductHandle { get; set; }
+        public string JobName { get; set; }
 
         [Sieve(CanFilter = true, CanSort = true)]
         public Int32 Status { get; set; }
-
-        [ForeignKey("PropertyId")]
-        public Property Property { get; set; }
-
-        [ForeignKey("OfficeId")]
-        public Office Office { get; set; }
-
-        [ForeignKey("AgentId")]
-        public Agent Agent { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
 

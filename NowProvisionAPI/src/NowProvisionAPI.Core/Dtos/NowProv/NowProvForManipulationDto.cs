@@ -6,12 +6,9 @@ namespace NowProvisionAPI.Core.Dtos.NowProv
 
     public abstract class NowProvForManipulationDto 
     {
-        public Int32 SubscriptionId { get; set; }
-        public string ProductHandle { get; set; }
+        public string Events { get; set; }
+        public string JobName { get; set; }
         public Int32 Status { get; set; }
-        public Property Property { get; set; }
-        public Office Office { get; set; }
-        public Agent Agent { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset UpdatedUtc { get; set; }
         public DateTimeOffset DeletedUtc { get; set; }

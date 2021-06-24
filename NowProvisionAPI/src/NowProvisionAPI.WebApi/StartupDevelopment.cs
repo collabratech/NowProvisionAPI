@@ -53,10 +53,7 @@ namespace NowProvisionAPI.WebApi
                     context.Database.EnsureCreated();
 
                     // NowProvisionApiDbContext Seeders
-
                     NowProvSeeder.SeedSampleNowProvData(app.ApplicationServices.GetService<NowProvisionApiDbContext>());
-                    PropertySeeder.SeedSamplePropertyData(app.ApplicationServices.GetService<NowProvisionApiDbContext>());
-                    AgentSeeder.SeedSampleAgentData(app.ApplicationServices.GetService<NowProvisionApiDbContext>());                    OfficeSeeder.SeedSampleOfficeData(app.ApplicationServices.GetService<NowProvisionApiDbContext>());
                 }
 
 

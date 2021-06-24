@@ -66,14 +66,14 @@ namespace NowProvisionAPI.IntegrationTests.FeatureTests.NowProv
         }
         
         [Test]
-        public async Task NowProvListQuery_Returns_Sorted_NowProv_ProductHandle_List_In_Asc_Order()
+        public async Task NowProvListQuery_Returns_Sorted_NowProv_Events_List_In_Asc_Order()
         {
             //Arrange
             var fakeNowProvOne = new FakeNowProv { }.Generate();
             var fakeNowProvTwo = new FakeNowProv { }.Generate();
-            fakeNowProvOne.ProductHandle = "bravo";
-            fakeNowProvTwo.ProductHandle = "alpha";
-            var queryParameters = new NowProvParametersDto() { SortOrder = "ProductHandle" };
+            fakeNowProvOne.Events = "bravo";
+            fakeNowProvTwo.Events = "alpha";
+            var queryParameters = new NowProvParametersDto() { SortOrder = "Events" };
 
             await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
 
@@ -94,14 +94,70 @@ namespace NowProvisionAPI.IntegrationTests.FeatureTests.NowProv
         }
 
         [Test]
-        public async Task NowProvListQuery_Returns_Sorted_NowProv_ProductHandle_List_In_Desc_Order()
+        public async Task NowProvListQuery_Returns_Sorted_NowProv_Events_List_In_Desc_Order()
         {
             //Arrange
             var fakeNowProvOne = new FakeNowProv { }.Generate();
             var fakeNowProvTwo = new FakeNowProv { }.Generate();
-            fakeNowProvOne.ProductHandle = "bravo";
-            fakeNowProvTwo.ProductHandle = "alpha";
-            var queryParameters = new NowProvParametersDto() { SortOrder = "ProductHandle" };
+            fakeNowProvOne.Events = "bravo";
+            fakeNowProvTwo.Events = "alpha";
+            var queryParameters = new NowProvParametersDto() { SortOrder = "Events" };
+
+            await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
+
+            //Act
+            var query = new GetNowProvList.NowProvListQuery(queryParameters);
+            var nowProvs = await SendAsync(query);
+
+            // Assert
+            nowProvs
+                .FirstOrDefault()
+                .Should().BeEquivalentTo(fakeNowProvTwo, options =>
+                    options.ExcludingMissingMembers());
+            nowProvs
+                .Skip(1)
+                .FirstOrDefault()
+                .Should().BeEquivalentTo(fakeNowProvOne, options =>
+                    options.ExcludingMissingMembers());
+        }
+
+        [Test]
+        public async Task NowProvListQuery_Returns_Sorted_NowProv_JobName_List_In_Asc_Order()
+        {
+            //Arrange
+            var fakeNowProvOne = new FakeNowProv { }.Generate();
+            var fakeNowProvTwo = new FakeNowProv { }.Generate();
+            fakeNowProvOne.JobName = "bravo";
+            fakeNowProvTwo.JobName = "alpha";
+            var queryParameters = new NowProvParametersDto() { SortOrder = "JobName" };
+
+            await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
+
+            //Act
+            var query = new GetNowProvList.NowProvListQuery(queryParameters);
+            var nowProvs = await SendAsync(query);
+
+            // Assert
+            nowProvs
+                .FirstOrDefault()
+                .Should().BeEquivalentTo(fakeNowProvTwo, options =>
+                    options.ExcludingMissingMembers());
+            nowProvs
+                .Skip(1)
+                .FirstOrDefault()
+                .Should().BeEquivalentTo(fakeNowProvOne, options =>
+                    options.ExcludingMissingMembers());
+        }
+
+        [Test]
+        public async Task NowProvListQuery_Returns_Sorted_NowProv_JobName_List_In_Desc_Order()
+        {
+            //Arrange
+            var fakeNowProvOne = new FakeNowProv { }.Generate();
+            var fakeNowProvTwo = new FakeNowProv { }.Generate();
+            fakeNowProvOne.JobName = "bravo";
+            fakeNowProvTwo.JobName = "alpha";
+            var queryParameters = new NowProvParametersDto() { SortOrder = "JobName" };
 
             await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
 
@@ -147,14 +203,38 @@ namespace NowProvisionAPI.IntegrationTests.FeatureTests.NowProv
         }
 
         [Test]
-        public async Task NowProvListQuery_Filters_NowProv_ProductHandle()
+        public async Task NowProvListQuery_Filters_NowProv_Events()
         {
             //Arrange
             var fakeNowProvOne = new FakeNowProv { }.Generate();
             var fakeNowProvTwo = new FakeNowProv { }.Generate();
-            fakeNowProvOne.ProductHandle = "alpha";
-            fakeNowProvTwo.ProductHandle = "bravo";
-            var queryParameters = new NowProvParametersDto() { Filters = $"ProductHandle == {fakeNowProvTwo.ProductHandle}" };
+            fakeNowProvOne.Events = "alpha";
+            fakeNowProvTwo.Events = "bravo";
+            var queryParameters = new NowProvParametersDto() { Filters = $"Events == {fakeNowProvTwo.Events}" };
+
+            await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
+
+            //Act
+            var query = new GetNowProvList.NowProvListQuery(queryParameters);
+            var nowProvs = await SendAsync(query);
+
+            // Assert
+            nowProvs.Should().HaveCount(1);
+            nowProvs
+                .FirstOrDefault()
+                .Should().BeEquivalentTo(fakeNowProvTwo, options =>
+                    options.ExcludingMissingMembers());
+        }
+
+        [Test]
+        public async Task NowProvListQuery_Filters_NowProv_JobName()
+        {
+            //Arrange
+            var fakeNowProvOne = new FakeNowProv { }.Generate();
+            var fakeNowProvTwo = new FakeNowProv { }.Generate();
+            fakeNowProvOne.JobName = "alpha";
+            fakeNowProvTwo.JobName = "bravo";
+            var queryParameters = new NowProvParametersDto() { Filters = $"JobName == {fakeNowProvTwo.JobName}" };
 
             await InsertAsync(fakeNowProvOne, fakeNowProvTwo);
 
