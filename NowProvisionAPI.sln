@@ -7,23 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NowProvisionAPI", "NowProvi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E1C429A7-B7BA-4ED6-91D6-8AD8E68F32DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.WebApi", "NowProvisionAPI\src\NowProvisionAPI.WebApi\NowProvisionAPI.WebApi.csproj", "{97B1959C-33AC-44F3-854A-8BE762129A68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.WebApi", "NowProvisionAPI\src\NowProvisionAPI.WebApi\NowProvisionAPI.WebApi.csproj", "{97B1959C-33AC-44F3-854A-8BE762129A68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.Core", "NowProvisionAPI\src\NowProvisionAPI.Core\NowProvisionAPI.Core.csproj", "{04C6D4E9-1A6E-45A9-9562-F95388FECB2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.Core", "NowProvisionAPI\src\NowProvisionAPI.Core\NowProvisionAPI.Core.csproj", "{04C6D4E9-1A6E-45A9-9562-F95388FECB2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.Infrastructure", "NowProvisionAPI\src\NowProvisionAPI.Infrastructure\NowProvisionAPI.Infrastructure.csproj", "{8608A048-DAAE-436E-B236-6B344A284691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.Infrastructure", "NowProvisionAPI\src\NowProvisionAPI.Infrastructure\NowProvisionAPI.Infrastructure.csproj", "{8608A048-DAAE-436E-B236-6B344A284691}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E6BAFC90-0049-4FD0-9433-4CAD7960EE38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.IntegrationTests", "NowProvisionAPI\tests\NowProvisionAPI.IntegrationTests\NowProvisionAPI.IntegrationTests.csproj", "{84F1F9D5-2F0A-42CA-879E-177873F92B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.IntegrationTests", "NowProvisionAPI\tests\NowProvisionAPI.IntegrationTests\NowProvisionAPI.IntegrationTests.csproj", "{84F1F9D5-2F0A-42CA-879E-177873F92B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.FunctionalTests", "NowProvisionAPI\tests\NowProvisionAPI.FunctionalTests\NowProvisionAPI.FunctionalTests.csproj", "{295C99C2-13C7-43FA-BFFE-E47050ABF2BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.FunctionalTests", "NowProvisionAPI\tests\NowProvisionAPI.FunctionalTests\NowProvisionAPI.FunctionalTests.csproj", "{295C99C2-13C7-43FA-BFFE-E47050ABF2BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.SharedTestHelpers", "NowProvisionAPI\tests\NowProvisionAPI.SharedTestHelpers\NowProvisionAPI.SharedTestHelpers.csproj", "{8AA11CE4-7D88-475F-9772-AFEAA34AC429}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.SharedTestHelpers", "NowProvisionAPI\tests\NowProvisionAPI.SharedTestHelpers\NowProvisionAPI.SharedTestHelpers.csproj", "{8AA11CE4-7D88-475F-9772-AFEAA34AC429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowProvisionAPI.UnitTests", "NowProvisionAPI\tests\NowProvisionAPI.UnitTests\NowProvisionAPI.UnitTests.csproj", "{AA8FFF1E-B10D-4E3D-B21F-39A326DE6FD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NowProvisionAPI.UnitTests", "NowProvisionAPI\tests\NowProvisionAPI.UnitTests\NowProvisionAPI.UnitTests.csproj", "{AA8FFF1E-B10D-4E3D-B21F-39A326DE6FD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{75BA314C-F10F-4706-938F-101C342868BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messages", "Messages\Messages.csproj", "{75BA314C-F10F-4706-938F-101C342868BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangFire.Azure.ServiceBusQueue", "HangFire.Azure.ServiceBusQueue\HangFire.Azure.ServiceBusQueue.csproj", "{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{97B1959C-33AC-44F3-854A-8BE762129A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -134,6 +133,21 @@ Global
 		{75BA314C-F10F-4706-938F-101C342868BC}.Release|x64.Build.0 = Release|Any CPU
 		{75BA314C-F10F-4706-938F-101C342868BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{75BA314C-F10F-4706-938F-101C342868BC}.Release|x86.Build.0 = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|x64.Build.0 = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|x86.Build.0 = Debug|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|x64.ActiveCfg = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|x64.Build.0 = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|x86.ActiveCfg = Release|Any CPU
+		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E1C429A7-B7BA-4ED6-91D6-8AD8E68F32DE} = {C3109B9D-4822-46A3-B943-11CE05ADD350}
@@ -145,5 +159,8 @@ Global
 		{295C99C2-13C7-43FA-BFFE-E47050ABF2BD} = {E6BAFC90-0049-4FD0-9433-4CAD7960EE38}
 		{8AA11CE4-7D88-475F-9772-AFEAA34AC429} = {E6BAFC90-0049-4FD0-9433-4CAD7960EE38}
 		{AA8FFF1E-B10D-4E3D-B21F-39A326DE6FD1} = {E6BAFC90-0049-4FD0-9433-4CAD7960EE38}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61FB505D-4AA9-40F6-B8F8-DFE47E3FB3BC}
 	EndGlobalSection
 EndGlobal
