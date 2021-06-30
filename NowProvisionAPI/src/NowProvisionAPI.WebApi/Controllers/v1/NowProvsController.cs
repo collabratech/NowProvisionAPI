@@ -60,7 +60,7 @@ namespace NowProvisionAPI.WebApi.Controllers.v1
         [ProducesResponseType(typeof(Response<>), 401)]
         [ProducesResponseType(typeof(Response<>), 403)]
         [ProducesResponseType(500)]
-        [Authorize(Policy = "CanReadNowProv")]
+        //[Authorize(Policy = "CanReadNowProv")]
         [Consumes("application/json")]
         [Produces("application/json")]
         [HttpGet(Name = "GetNowProvs")]
@@ -103,7 +103,7 @@ namespace NowProvisionAPI.WebApi.Controllers.v1
         [ProducesResponseType(typeof(Response<>), 401)]
         [ProducesResponseType(typeof(Response<>), 403)]
         [ProducesResponseType(500)]
-        [Authorize(Policy = "CanReadNowProv")]
+        //[Authorize(Policy = "CanReadNowProv")]
         [Produces("application/json")]
         [HttpGet("{id}", Name = "GetNowProv")]
         public async Task<ActionResult<NowProvDto>> GetNowProv(Guid id)
