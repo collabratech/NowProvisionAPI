@@ -16,11 +16,15 @@ namespace NowProvisionAPI.WebApi.Extensions.Services
 	using System.Linq;
 	using Microsoft.IdentityModel.Tokens;
 	using Microsoft.AspNetCore.Authentication.JwtBearer;
+	using Hangfire;
 
 	public static class SwaggerServiceExtension
     {
 		public static void AddSwaggerExtension(this IServiceCollection services, IConfiguration configuration)
 		{
+			// Adicionar serviços Hangfire.  
+			services.AddHangfire(x => x.UseSqlServerStorage(configuration.GetConnectionString("NowProvisionApiDbContext")));
+
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo

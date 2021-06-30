@@ -13,6 +13,7 @@ namespace NowProvisionAPI.WebApi
 	using System.IdentityModel.Tokens.Jwt;
 	using System;
 	using Microsoft.Extensions.Hosting;
+	using Hangfire;
 
 	public class Startup
     {
@@ -38,8 +39,9 @@ namespace NowProvisionAPI.WebApi
             services.AddWebApiServices();
             services.AddHealthChecks();
 
-            // Dynamic Services
-            services.AddSwaggerExtension(_config);
+			
+			// Dynamic Services
+			services.AddSwaggerExtension(_config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +60,13 @@ namespace NowProvisionAPI.WebApi
 			app.UseSerilogRequestLogging(options => SetupRequestLogging(options, env.IsDevelopment()));
 			app.UseRouting();
 
-            app.UseAuthentication();
+			app.UseHangfireDashboard();
+			app.UseHangfireServer();
+
+			app.UseDeveloperExceptionPage();
+			//app.UseBrowserLink();
+
+			app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseErrorHandlingMiddleware();
